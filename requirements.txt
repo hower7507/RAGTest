@@ -1,0 +1,48 @@
+# RAG架构私域知识库所需依赖包
+# 基础依赖
+python==3.10.8
+
+# 核心RAG框架
+llama-index==0.10.11
+chromadb==0.4.22
+
+# 向量嵌入模型
+FlagEmbedding==1.2.10
+torch==2.0.1
+transformers==4.36.2
+
+# 文档处理
+python-docx==1.1.2
+docx2txt==0.9
+unstructured==0.10.30
+unstructured-inference==0.7.21
+pypdf==3.17.1
+
+# 数据处理和分析
+numpy==1.26.4
+pandas==2.2.0
+scikit-learn==1.3.2
+
+# 中文文本处理
+jieba==0.42.1
+
+# LLM API客户端
+openai==1.12.0  # DeepSeek API使用OpenAI SDK，只需修改base_url
+
+# 工具库
+tqdm==4.66.1
+pydantic==2.5.2
+typing-extensions==4.9.0
+
+# 可选：用于结构化数据处理
+mysql-connector-python==8.2.0
+sqlalchemy==2.0.23
+
+# 可选：用于Web界面
+streamlit==1.29.0
+fastapi==0.104.1
+uvicorn==0.24.0
+
+# 可选：用于调试和开发
+ipython==8.18.1
+jupyter==1.0.0

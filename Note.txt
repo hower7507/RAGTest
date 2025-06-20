@@ -1,0 +1,21 @@
+加载文档 (chap01, chap02, chap03) -> 预处理/分割 (差异化处理，保留元数据) -> 文本 Chunks + 元数据
+        |
+        V
+选择 sentence-transformers 模型 -> 生成 Chunk 向量
+        |
+        V
+[可选] 结构化数据 (如表格) -> 解析 -> 存储到 MySQL (未来扩展)
+        |
+        V
+构建 LlamaIndex VectorStoreIndex (使用 ChromaDB 存储向量+文本+元数据) -> 持久化存储
+-------------------------------------------------------------------------------------------
+用户提问 -> 用相同模型生成问题向量 -> 在 ChromaDB 中检索 Top-K 相似 Chunks (可加元数据过滤)
+        |
+        V
+[可选] 使用 LLM Reranker 对 Top-K 结果重排 -> 选择 Top 1-2 个 Chunk
+        |
+        V
+构造 Prompt (指令 + 检索到的 Chunks + 用户问题) -> 调用 DeepSeek API
+        |
+        V
+解析 LLM 响应 -> 返回答案给用户 (可附引用来源)

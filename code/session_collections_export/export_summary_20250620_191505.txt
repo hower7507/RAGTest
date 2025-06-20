@@ -1,0 +1,11 @@
+=== 会话数据库集合导出总结 ===
+导出时间: 2025-06-20T19:15:05.689499
+数据库路径: E:\PyProjects\QASystem\code\chroma_db
+总集合数: 5
+成功导出: 4 个文件
+
+导出的文件列表:
+  - session_collection_qa_chunks_20250620_191505.txt
+  - session_collection_qa_demo_collection_20250620_191505.txt
+  - session_collection_qa_collection_20250620_191505.txt
+  - session_collection_chat_conversations_20250620_191505.txt

@@ -1,0 +1,242 @@
+{
+  "source_file": "chap02.txt",
+  "processing_time": "2025-06-20T22:20:21.722251",
+  "total_chunks": 26,
+  "chunk_type": "general_text",
+  "chunks": [
+    {
+      "chunk_id": "chap02.txt-1",
+      "content": "以下是记者对Deep Seek创始人梁文峰的采访实录：",
+      "word_count": 27,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-2",
+      "content": "一、为什么Deep Seek会让硅谷的很多人惊讶？",
+      "word_count": 25,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-3",
+      "content": "他们之所以惊讶，是因为这是一个中国公司在以“创新贡献者”的身份加入到他们游戏里去，毕竟大部分中国公司习惯跟随而不是创新，但这种选择放在中国语境也过于奢侈。大模型是一个重投入游戏，不是所有公司都有资本只去研究创新，而不是先考虑商业化。创新的成本肯定不低，过去那种拿来主义的惯性也和过去的国情有关。但现在你看，无论中国的经济体量，还是字节、腾讯这些大厂的利润，放在全球都不低。我们创新缺的肯定不是资本，而是缺乏信心，以及不知道怎么组织高密度的人才实现有效的创新。",
+      "word_count": 229,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-4",
+      "content": "二、为什么中国公司包括不缺钱的大厂这么容易把“快速商业化”当第一要义？",
+      "word_count": 35,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-5",
+      "content": "过去30年我们都只强调赚钱，对创新是忽视的。创新不完全是商业驱动的，还需要好奇心和创造力。我们只是被过去那种惯性束缚了，但它也是阶段性的。",
+      "word_count": 69,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-6",
+      "content": "三、但你们是一个商业组织，而非一个公益科研机构。选择创新又通过开源分享出去，那要在哪里形成护城河？",
+      "word_count": 49,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-7",
+      "content": "在颠覆性的技术面前，闭源形成的护城河是短暂的。即使OpenAI闭源，也无法阻止被别人赶超。所以我们把价值沉淀在团队上，我们的同事在这个过程中得到成长，形成可以创新的组织和文化，就是我们的护城河。开源发论文其实并没有失去什么，对于技术人员来说，被跟随是很有成就感的事。其实开源更像一个文化行为，而非商业行为。给予其实是一种额外的荣誉，一个公司这么做也会有文化的吸引力。",
+      "word_count": 183,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-8",
+      "content": "四、你怎么看类似朱啸虎的这种市场信仰派观点？",
+      "word_count": 22,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-9",
+      "content": "朱啸虎是自洽的，但他的打法更适合快速赚钱的公司。你看美国最赚钱的公司都是厚积薄发的高科技公司。一个大型公司单纯的技术领先，也很难形成绝对优势。",
+      "word_count": 71,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-10",
+      "content": "五、你们赌的那个更大的东西是什么？",
+      "word_count": 17,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-11",
+      "content": "我们看到的是中国可能永远处在跟随的位置。我们经常说中国AI和美国AI有一两年差距，但真实的差距是原创和模仿之差。如果这个不改变，中国永远只能是追随者，所以有些探索也是逃不掉的。英伟达的领先不只是一个公司的努力，而是整个西方技术社区和产业共同努力的结果。他们能看到下一代的技术趋势，手里有路线图。",
+      "word_count": 147,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-12",
+      "content": "中国AI的发展同样需要这样的生态。很多国产芯片发展不起来，也是因为缺乏配套的技术社区，只有第二手消息，所以中国必然需要有人站到技术的奇才。实际上并没有什么高深莫测的奇才，都是一些顶级高校的应届毕业生、没毕业的博士实习生，还有一些毕业的技术的人才。大模型公司都执着地去海外挖人，很多人觉得这个领域前50名的顶尖人才可能都不在中国的公司。",
+      "word_count": 167,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-13",
+      "content": "六、你们的人都来自哪里？",
+      "word_count": 12,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-14",
+      "content": "没有海外回来的人，都是本土的。前50名顶尖人才可能不在中国，但也许我们能自己打造这样的人。而且，我们选人的标准一直都是热爱和好奇心，所以很多人会有一些奇特的经历。很多人对做研究的渴望远超对钱的在意，这种发散性敏感的诞生和完全创新型组织的架构很有关系。",
+      "word_count": 125,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-15",
+      "content": "七、AGI这种充满不确定性的前沿探索，是否多了管理动作？",
+      "word_count": 28,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-16",
+      "content": "这个也全是自下而上的，而且我们一般不前置分工，而是自然分工。每个人有自己独特的成长经历，都是自带想法的，不需要推动他。探索过程中，他遇到问题自己就会拉人讨论。不过，当一个想法显示出潜力，我们也会自上而下地去调配资源。",
+      "word_count": 108,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-17",
+      "content": "八、创新很大程度也是一种偶然吗？",
+      "word_count": 16,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-18",
+      "content": "我觉得创新首先是一个信念问题，为什么硅谷那么有创新精神？首先是敢。Chat gpt提出来时，整个国内对做前沿创新新都缺乏信心，从投资人到大厂都觉得差距太大了，还是做应用吧。但创新首先需要创新，这种创新通常在年轻人身上更明显，大部分中国公司选择既要模型又要应用。",
+      "word_count": 130,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-19",
+      "content": "九、为什么Deep Seek目前选择只做研究探索？",
+      "word_count": 25,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-20",
+      "content": "因为我们觉得现在最重要的是参与到全球创新的浪潮里去。过去很多年，中国公司习惯了别人做技术创新，我们拿过来做应用变现，但这并非是一种理所当然。这一波浪潮里，我们的出发点就不是趁机赚一笔，而是走到技术的前沿去推动整个生态发展。",
+      "word_count": 111,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-21",
+      "content": "十、你觉得创新很大程度也是一种偶然吗？",
+      "word_count": 19,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-22",
+      "content": "我觉得创新首先是一个信念问题，为什么硅谷那么有创新精神？整个国内对做前沿创新都缺乏信心，从投资人到大厂都觉得差距太大了，还是做应用吧。但创新首先需要自信，这种信心通常在年轻人身上更明显。现在经济开始进入下行，资本也进入冷周期，所以它对原创式创新是否会带来更多的抑制，我倒觉得未必。中国产业结构的调整会更依赖硬核技术的创新。当很多人发现过去赚快钱很可能来自时代运气，就会更愿意俯身去做真正的创新。",
+      "word_count": 197,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-23",
+      "content": "十一、技术真的可以拉开差距吗？",
+      "word_count": 15,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-24",
+      "content": "并不存在绝对的技术秘密。技术没有秘密，但重置需要时间和成本。英伟达的显卡理论上没有任何技术秘密，很容易复制，但重新组织团队以及追赶下一代技术都需要时间，所以实际的护城河还是很快。互联网和移动互联网时代留给大部分人的惯性认知是：美国擅长搞技术创新，中国更擅长做应用。我们认为，随着经济发展，中国也要逐步成为贡献者，而不是一直搭便车。过去三十多年IT浪潮里，我们基本没有参与到真正的技术创新里。我们已经习惯摩尔定律从天而降，躺在家里18个月就会出来更好的硬件和软件。但其实这是西方主导的技术时代，一代代孜孜不倦创造出来的，只因为之前我们没有参与这个过程，以至于忽视了它的存在。",
+      "word_count": 286,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-25",
+      "content": "十二、你对国内原始创新也是乐观的嘛？",
+      "word_count": 18,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    },
+    {
+      "chunk_id": "chap02.txt-26",
+      "content": "我是八十年代在广东一个五线城市长大的，我的父亲是小学老师。九十年代广东赚钱机会很多，当时有不少家长到我家里来，基本就是家长觉得读书没用。但现在回去看，观念都变了，因为钱不好赚了，连开出租车的机会可能都没了，以后硬核创新会越来越多。现在可能还不容易被理解，是因为整个社会群体需要被实施教育。当这个社会让硬核创新的人功成名就，群体性想法就会改变。",
+      "word_count": 171,
+      "chunk_type": "general_text",
+      "metadata": {
+        "source": "chap02.txt"
+      }
+    }
+  ]
+}

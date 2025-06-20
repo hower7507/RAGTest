@@ -1,0 +1,108 @@
+# QA系统前端UI项目实施方案
+
+## 项目概述
+- 前端：React + TypeScript
+- 后端：FastAPI
+- 存储：ChromaDB（新集合"chat_conversations"）
+- AI模型：DeepSeek（qa_system配置）
+- 部署：本地部署，个人使用
+
+## 分步实施计划
+
+### 第一阶段：后端API开发
+
+**步骤1：创建FastAPI后端服务**
+- 创建FastAPI应用主文件
+- 集成现有的DeepSeek客户端
+- 配置CORS和基本路由
+- 使用qa_system预设配置
+
+**步骤2：设计对话存储系统**
+- 创建新的ChromaDB集合（"chat_conversations"）
+- 设计对话数据格式（参考chap01格式）
+- 实现会话管理功能
+- 添加元数据字段（session_id、timestamp等）
+
+**步骤3：实现核心API接口**
+- `/chat` - 发送消息并获取回复
+- `/sessions` - 获取历史会话列表
+- `/sessions/{session_id}` - 获取特定会话的对话历史
+- `/sessions/new` - 创建新会话
+
+### 第二阶段：前端界面开发
+
+**步骤4：创建React+TypeScript项目**
+- 初始化React项目
+- 配置TypeScript
+- 设置基本的项目结构
+
+**步骤5：开发对话界面组件**
+- 类似ChatGPT的对话界面
+- 消息列表组件
+- 多行输入框组件
+- 发送按钮和状态处理
+
+**步骤6：实现会话管理功能**
+- 历史会话列表侧边栏
+- 会话切换功能
+- 上下文恢复机制
+- 新建会话功能
+
+### 第三阶段：集成与优化
+
+**步骤7：前后端集成**
+- API调用封装
+- 错误处理（API失败显示"调用失败"）
+- 数据流管理
+
+**步骤8：本地部署配置**
+- 配置合适的端口（如前端3000，后端8000）
+- 确保本地可访问
+- 测试完整流程
+
+**步骤9：测试与完善**
+- 功能测试
+- 会话持久化测试
+- 错误场景测试
+
+## 技术架构
+
+### 数据存储格式设计
+```json
+{
+  "session_id": "uuid",
+  "message_id": "uuid", 
+  "speaker_id": "用户" | "AI助手",
+  "timestamp": "2024-01-01T10:00:00",
+  "content": "对话内容",
+  "word_count": 15,
+  "metadata": {
+    "model_config": "qa_system",
+    "response_time": 1.2,
+    "token_usage": {...}
+  }
+}
+```
+
+### 端口配置
+- 前端：http://localhost:3000
+- 后端：http://localhost:8000
+
+### 核心功能特性
+✅ 多轮对话支持
+✅ 会话历史持久化
+✅ 应用重启后恢复会话
+✅ 历史会话列表
+✅ 上下文环境恢复
+✅ 多行输入支持
+✅ API失败处理
+✅ ChromaDB存储集成
+
+## 用户需求确认
+- 对话存储格式：参考chap01格式，speaker_id为"用户"/"AI助手"
+- 会话管理：重启后恢复历史会话，显示历史会话列表，支持会话切换
+- ChromaDB：使用新集合，存储对话和元数据
+- DeepSeek：使用qa_system配置
+- 界面：类似ChatGPT，不支持Markdown渲染，支持多行输入
+- 功能：无需历史搜索，无需文档搜索集成，无需文件上传
+- 部署：本地部署，API失败显示"调用失败"
