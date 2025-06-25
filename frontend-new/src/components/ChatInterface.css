@@ -29,6 +29,8 @@
   gap: 12px;
   max-width: 80%;
   animation: fadeInUp 0.3s ease-out;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .message-wrapper.user {

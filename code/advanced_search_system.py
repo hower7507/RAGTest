@@ -593,15 +593,20 @@ class AdvancedSearchSystem:
             else:
                 file_name = '未知来源'
             
+            # 提取chunk_id
+            chunk_id = result.get('id', f'chunk_{i+1}')
+            if isinstance(chunk_id, str) and '-' in chunk_id:
+                chunk_id = chunk_id.split('-')[-1]
+            
             # 检查是否为QA格式数据
             if 'question' in metadata and 'answer' in metadata:
-                result_text = f"""[文档{i+1} - 来源文件: {file_name}]
+                result_text = f"""[{file_name}-{chunk_id} - 来源文件: {file_name}]
 问题: {metadata.get('question', '')}
 答案: {metadata.get('answer', '')}
 相关度得分: {result.get('final_score', 0):.3f}
 """
             else:
-                result_text = f"""[文档{i+1} - 来源文件: {file_name}]
+                result_text = f"""[{file_name}-{chunk_id} - 来源文件: {file_name}]
 时间: {metadata.get('start_time', '')} - {metadata.get('end_time', '')}
 说话人: {metadata.get('speakers', '未知')}
 内容: {content}
@@ -727,7 +732,7 @@ def demo_advanced_search():
     
     # 1. 初始化向量化器
     vectorizer = ChunkVectorizer(
-        model_name="BAAI/bge-small-zh-v1.5",
+        model_name="e:\\PyProjects\\QASystem\\code\\model",
         collection_name="qa_system_chunks"
     )
     

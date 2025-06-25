@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   ThemeProvider,
@@ -155,7 +155,9 @@ function App() {
           display: 'flex', 
           flexDirection: 'column',
           marginTop: connectionStatus === 'disconnected' ? '48px' : 0,
-          transition: 'margin-top 0.3s ease'
+          transition: 'margin-top 0.3s ease',
+          minWidth: 0, // 防止flex子元素溢出
+          width: sidebarOpen && !isMobile ? 'calc(100% - 280px)' : '100%'
         }}>
           {/* 桌面端工具栏 */}
           {!isMobile && (

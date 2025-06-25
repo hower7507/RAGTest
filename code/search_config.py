@@ -39,7 +39,7 @@ class SearchConfig:
     allowed_pos: List[str] = None
     
     # === 模型配置 ===
-    model_name: str = "BAAI/bge-small-zh-v1.5"
+    model_name: str = "e:\\PyProjects\\QASystem\\code\\model"
     collection_name: str = "qa_system_chunks"
     chroma_db_path: str = "e:\\PyProjects\\QASystem\\chroma_db"
     

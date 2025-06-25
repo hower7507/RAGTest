@@ -467,7 +467,7 @@ async def chat(request: ChatMessage):
 
 问题：{request.message}
 
-请根据上述相关内容回答问题。在回答时，如果相关内容不足以回答问题，请说明并提供你的一般性建议。"""
+请根据上述相关内容回答问题。在回答时，如果相关内容不足以回答问题，你可以依照自身理解进行作答，并提供你的一般性建议以及正常回答，一般性建议和正常回答可以尽可能详细丰富。注意，上下文中的标识格式为[文件名-chunk编号 - 来源: 文件名]，请在回答时引用具体的文件名而不是使用"文档1"、"文档2"等通用标识。回答的结果不要包含上下文的json格式，对上下文信息进行总结作答即可。"""
         
         # 调用DeepSeek API
         start_time = datetime.now()
@@ -483,7 +483,7 @@ async def chat(request: ChatMessage):
         except Exception as e:
             print(f"DeepSeek API调用失败: {e}")
             ai_response = f"抱歉，我暂时无法回答您的问题。错误信息: {str(e)}"
-            updated_conversation = history_messages + [{"role": "user", "content": current_message}]
+            # 移除未使用的变量赋值
         
         end_time = datetime.now()
         
@@ -607,4 +607,10 @@ if __name__ == "__main__":
     import uvicorn
     print("启动QA系统聊天后端服务...")
     print("API文档地址: http://localhost:8000/docs")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(
+        app, 
+        host="0.0.0.0", 
+        port=8000,
+        timeout_keep_alive=120,  # 保持连接超时120秒
+        timeout_graceful_shutdown=30  # 优雅关闭超时30秒
+    )

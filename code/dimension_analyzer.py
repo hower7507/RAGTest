@@ -5,6 +5,7 @@
 """
 
 import json
+import re
 from typing import Dict, List, Any, Optional
 from deepseek_client import DeepSeekClient
 from deepseek_config_presets import DeepSeekPresets
@@ -42,12 +43,12 @@ class DimensionAnalyzer:
 - time_search: 时间范围搜索（适用于特定时间段的内容）
 
 请以JSON格式回复，格式如下：
-{
+{{
     "needs_additional_search": true/false,
     "missing_dimensions": ["dimension1", "dimension2"],
     "confidence": 0.0-1.0,
     "reasoning": "判断理由"
-}
+}}
 
 注意：
 - 如果当前上下文已经包含足够信息回答查询，设置needs_additional_search为false
@@ -192,15 +193,45 @@ class DimensionAnalyzer:
             # 移除多余的空白字符
             json_str = json_str.strip()
             
-            # 修复单引号为双引号
-            json_str = json_str.replace("'", '"')
+            # 移除markdown代码块标记
+            if '```json' in json_str:
+                start_idx = json_str.find('```json') + 7
+                end_idx = json_str.find('```', start_idx)
+                if end_idx != -1:
+                    json_str = json_str[start_idx:end_idx].strip()
+            elif '```' in json_str:
+                start_idx = json_str.find('```') + 3
+                end_idx = json_str.find('```', start_idx)
+                if end_idx != -1:
+                    json_str = json_str[start_idx:end_idx].strip()
+            
+            # 如果不是以{开头或}结尾，尝试提取JSON部分
+            if not (json_str.startswith('{') and json_str.endswith('}')):
+                start_idx = json_str.find('{')
+                end_idx = json_str.rfind('}') + 1
+                if start_idx != -1 and end_idx > start_idx:
+                    json_str = json_str[start_idx:end_idx]
+            
+            # 智能修复单引号为双引号（避免破坏字符串内容中的单引号）
+            # 只替换作为JSON语法的单引号，不替换字符串内容中的单引号
+            import re
+            
+            # JSON字符串中的单引号是合法的，不需要转义
+            # 只需要替换作为JSON语法的单引号（键名和简单值）
+            
+            # 替换键名周围的单引号
+            json_str = re.sub(r"'([^']+)'\s*:", r'"\1":', json_str)
+            # 替换简单值周围的单引号（不包含转义字符的）
+            json_str = re.sub(r":\s*'([^'\\]*)'([,}\]])", r': "\1"\2', json_str)
             
             # 修复尾随逗号
             json_str = re.sub(r',\s*}', '}', json_str)
             json_str = re.sub(r',\s*]', ']', json_str)
             
-            # 修复缺失的引号
-            json_str = re.sub(r'(\w+):', r'"\1":', json_str)
+            # 修复缺失的引号（但要小心不要破坏已有的引号）
+            # 只修复明显缺少引号的键名
+            json_str = re.sub(r'([^"\s])([a-zA-Z_][a-zA-Z0-9_]*):', r'\1"\2":', json_str)
+            json_str = re.sub(r'^([a-zA-Z_][a-zA-Z0-9_]*):', r'"\1":', json_str, flags=re.MULTILINE)
             
             # 修复布尔值
             json_str = json_str.replace('True', 'true').replace('False', 'false')

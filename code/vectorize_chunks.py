@@ -12,12 +12,12 @@ class ChunkVectorizer:
     支持时间戳转换，便于时间范围查询
     """
     
-    def __init__(self, model_name: str = "BAAI/bge-small-zh-v1.5", collection_name: str = "qa_system_chunks"):
+    def __init__(self, model_name: str = "e:\\PyProjects\\QASystem\\code\\model", collection_name: str = "qa_system_chunks"):
         """
         初始化向量化器
         
         Args:
-            model_name: FlagEmbedding模型名称
+            model_name: FlagEmbedding模型名称或本地路径
             collection_name: ChromaDB集合名称
         """
         self.model_name = model_name
@@ -525,7 +525,7 @@ def main():
         "e:\\PyProjects\\QASystem\\data\\chap03_semantic_processed.json"
     ]
     persist_directory = "e:\\PyProjects\\QASystem\\chroma_db"
-    model_name = "BAAI/bge-small-zh-v1.5"
+    model_name = "e:\\PyProjects\\QASystem\\code\\model"
     collection_name = "qa_system_chunks"
     
     # 创建向量化器实例

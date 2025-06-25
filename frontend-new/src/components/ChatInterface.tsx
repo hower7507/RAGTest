@@ -96,7 +96,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ sessionId, onSessionChang
     // 添加加载中的AI消息
     const loadingMessage: DisplayMessage = {
       id: `loading-${Date.now()}`,
-      content: '正在思考中...',
+      content: '正在分析您的问题并搜索相关信息，这可能需要1-2分钟，请耐心等待...',
       isUser: false,
       timestamp: new Date().toISOString(),
       isLoading: true,
@@ -128,7 +128,19 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ sessionId, onSessionChang
 
     } catch (err: any) {
       console.error('发送消息失败:', err);
-      setError(err.message || '调用失败，无法提问');
+      let errorMessage = '发送消息失败';
+      
+      if (err.code === 'ECONNABORTED' || err.message?.includes('timeout')) {
+        errorMessage = '请求超时，系统可能正在处理复杂查询，请稍后重试或刷新页面查看结果';
+      } else if (err.response?.status >= 500) {
+        errorMessage = '服务器内部错误，请稍后重试';
+      } else if (err.response?.status === 404) {
+        errorMessage = 'API接口未找到，请检查后端服务是否正常运行';
+      } else {
+        errorMessage = err.message || '调用失败，无法提问';
+      }
+      
+      setError(errorMessage);
       
       // 移除加载消息
       setMessages(prev => prev.filter(msg => msg.id !== loadingMessage.id));
@@ -202,7 +214,14 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ sessionId, onSessionChang
               ) : (
                 <Box className={`message-text ${message.isLoading ? 'loading' : ''}`}>
                    <div className="markdown-content">
-                     <ReactMarkdown>{message.content}</ReactMarkdown>
+                     <ReactMarkdown 
+                       components={{
+                         p: ({ children }) => <p style={{ margin: '8px 0' }}>{children}</p>,
+                         br: () => <br />
+                       }}
+                     >
+                       {message.content}
+                     </ReactMarkdown>
                    </div>
                    {message.isLoading && (
                      <CircularProgress size={16} sx={{ ml: 1 }} />

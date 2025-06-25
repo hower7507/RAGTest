@@ -90,21 +90,39 @@ class ContextManager:
         if 'chunk_id' in metadata:
             return metadata['chunk_id']
         
-        # 尝试从id中解析（格式：chunk_N）
+        # 尝试从id中解析
         result_id = result.get('id', '')
-        if isinstance(result_id, str) and result_id.startswith('chunk_'):
-            try:
-                return int(result_id.split('_')[1])
-            except (IndexError, ValueError):
-                pass
+        if isinstance(result_id, str):
+            # 处理 chapXX-N 格式
+            if '-' in result_id:
+                try:
+                    chunk_part = result_id.split('-')[-1]  # 取最后一部分
+                    return int(chunk_part)
+                except (ValueError, IndexError):
+                    pass
+            # 处理 chunk_N 格式
+            elif result_id.startswith('chunk_'):
+                try:
+                    return int(result_id.split('_')[1])
+                except (IndexError, ValueError):
+                    pass
         
         # 尝试从document_id中获取
         doc_id = result.get('document_id', '')
-        if isinstance(doc_id, str) and doc_id.startswith('chunk_'):
-            try:
-                return int(doc_id.split('_')[1])
-            except (IndexError, ValueError):
-                pass
+        if isinstance(doc_id, str):
+            # 处理 chapXX-N 格式
+            if '-' in doc_id:
+                try:
+                    chunk_part = doc_id.split('-')[-1]  # 取最后一部分
+                    return int(chunk_part)
+                except (ValueError, IndexError):
+                    pass
+            # 处理 chunk_N 格式
+            elif doc_id.startswith('chunk_'):
+                try:
+                    return int(doc_id.split('_')[1])
+                except (IndexError, ValueError):
+                    pass
         
         return None
     
@@ -219,8 +237,10 @@ class ContextManager:
                     file_name = os.path.basename(source_file).replace('.txt', '').replace('_processed.json', '')
                 else:
                     file_name = '未知来源'
-                
-                result_text = f"""[文档{i+1} - 来源: {file_name}]
+                chunk_id = self._extract_chunk_id(result)
+                # 如果chunk_id为None，使用空字符串
+                chunk_id_str = str(chunk_id) if chunk_id is not None else ""
+                result_text = f"""[参考片段{file_name}-{chunk_id_str} - 来源: {file_name}]
 问题: {metadata.get('question', '')}
 答案: {metadata.get('answer', '')}
 相关度: {result.get('bre_score', result.get('score', 0)):.3f}
@@ -234,7 +254,10 @@ class ContextManager:
                 else:
                     file_name = '未知来源'
                 
-                result_text = f"""[文档{i+1} - 来源: {file_name}]
+                chunk_id = self._extract_chunk_id(result)
+                # 如果chunk_id为None，使用空字符串
+                chunk_id_str = str(chunk_id) if chunk_id is not None else ""
+                result_text = f"""[{file_name}-{chunk_id_str} - 来源: {file_name}]
 时间: {metadata.get('start_time', '')} - {metadata.get('end_time', '')}
 说话人: {metadata.get('speakers', '未知')}
 内容: {content}

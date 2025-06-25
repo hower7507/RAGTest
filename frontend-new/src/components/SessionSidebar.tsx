@@ -245,9 +245,12 @@ const SessionSidebar: React.FC<SessionSidebarProps> = ({
       className={`desktop-sidebar ${open ? 'open' : 'closed'}`}
       sx={{
         width: open ? 280 : 0,
+        minWidth: open ? 280 : 0,
+        maxWidth: open ? 280 : 0,
         transition: 'width 0.3s ease',
         overflow: 'hidden',
         borderRight: open ? '1px solid #e0e0e0' : 'none',
+        flexShrink: 0, // 防止被压缩
       }}
     >
       {open && sidebarContent}

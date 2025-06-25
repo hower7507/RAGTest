@@ -6,7 +6,7 @@ const API_BASE_URL = 'http://localhost:8000';
 // 创建axios实例
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 30000,
+  timeout: 120000, // 增加到120秒，适应复杂AI查询处理
   headers: {
     'Content-Type': 'application/json',
   },

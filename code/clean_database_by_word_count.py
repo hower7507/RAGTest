@@ -273,7 +273,7 @@ def preview_cleanup():
         if len(to_delete) > 0:
             print(f"\n🗑️  前10个将被删除的文档:")
             for i, (doc_idx, wc, chunk_id) in enumerate(to_delete[:10]):
-                print(f"   {i+1}. 文档{doc_idx+1}: word_count={wc}, chunk_id={chunk_id}")
+                print(f"   {i+1}. chunk_{doc_idx+1}: word_count={wc}, chunk_id={chunk_id}")
             
             if len(to_delete) > 10:
                 print(f"   ... 还有 {len(to_delete) - 10} 个文档将被删除")

@@ -37,7 +37,7 @@ def demo_complete_qa_workflow():
     
     # 创建向量化器 - 使用后端相同的配置
     vectorizer = ChunkVectorizer(
-        model_name="BAAI/bge-small-zh-v1.5",
+        model_name="e:\\PyProjects\\QASystem\\code\\model",
         collection_name="qa_system_chunks"  # 使用后端相同的集合名称
     )
     
@@ -140,7 +140,7 @@ def demo_simple_search():
     
     # 创建向量化器（假设数据已经存在）- 使用后端相同配置
     vectorizer = ChunkVectorizer(
-        model_name="BAAI/bge-small-zh-v1.5",
+        model_name="e:\\PyProjects\\QASystem\\code\\model",
         collection_name="qa_system_chunks"  # 使用后端相同的集合名称
     )
     
